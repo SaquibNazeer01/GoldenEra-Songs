@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-wood-dark: #1b120c;
+    --color-wood-medium: #2e1d13;
+    --color-wood-amber: #5c3a21;
+    --color-brass: #d4af37;
+    --color-brass-glow: rgba(212, 175, 55, 0.4);
+    --color-cream: #f6efe2;
+    --color-parchment: #e9dfcc;
+  }
+
+  body {
+    background-color: #100b08;
+    color: #f5eedb;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Typography Classes */
+.font-serif-vintage {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-display-hindi {
+  font-family: 'Rozha One', 'Cinzel', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-handwriting {
+  font-family: 'Kalam', cursive;
+}
+
+.font-mono-radio {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+}
+
+.font-vintage-typewriter {
+  font-family: 'Special Elite', monospace;
+}
+
+/* Wood Grain & Cabin Interior Textures */
+.wood-panel-bg {
+  background-color: #1c130d;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(40, 25, 15, 0.95) 0%,
+      rgba(20, 12, 8, 0.98) 100%
+    );
+}
+
+.wood-grain-radial {
+  background: radial-gradient(circle at 50% 30%, #3e2617 0%, #1e120b 70%, #0d0805 100%);
+}
+
+.brass-border {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 0 12px rgba(212, 175, 55, 0.15), 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.brass-gradient {
+  background: linear-gradient(135deg, #dfba48 0%, #b8860b 50%, #996515 100%);
+}
+
+.brass-knob-metallic {
+  background: radial-gradient(circle at 35% 35%, #f7df87 0%, #c9982c 40%, #7a5410 85%, #422a05 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7), inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+/* Analog Tube Glow */
+.tube-glow-amber {
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.35), inset 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.radio-dial-glow {
+  text-shadow: 0 0 8px rgba(245, 180, 50, 0.7), 0 0 18px rgba(245, 140, 20, 0.4);
+}
+
+.on-air-glow {
+  box-shadow: 0 0 20px #ef4444, 0 0 40px rgba(239, 68, 68, 0.6);
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* CRT Scanline Imperfection */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 998;
+  opacity: 0.06;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Tea Steam Animation */
+@keyframes steamDrift {
+  0% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateY(-24px) scaleX(1.4) scaleY(1.2) translateX(4px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-48px) scaleX(2) scaleY(1.5) translateX(-6px);
+    opacity: 0;
+  }
+}
+
+.steam-particle-1 {
+  animation: steamDrift 3.2s infinite ease-out;
+}
+
+.steam-particle-2 {
+  animation: steamDrift 3.8s infinite ease-out 1.2s;
+}
+
+.steam-particle-3 {
+  animation: steamDrift 4.4s infinite ease-out 2.1s;
+}
+
+/* Fireplace Flame Animation */
+@keyframes fireFlicker {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    opacity: 0.95;
+    transform: scale(1.05, 0.98) translateY(-2px);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(0.97, 1.03) translateY(1px);
+  }
+  75% {
+    opacity: 0.98;
+    transform: scale(1.03, 1.02) translateY(-1px);
+  }
+}
+
+.fire-flame-anim {
+  animation: fireFlicker 0.4s infinite ease-in-out alternate;
+}
+
+/* Ambient Lantern Glow Pulse */
+@keyframes lanternGlow {
+  0%, 100% {
+    box-shadow: 0 0 70px 25px rgba(245, 158, 11, 0.18), 0 0 140px 60px rgba(217, 119, 6, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 85px 30px rgba(245, 158, 11, 0.22), 0 0 160px 75px rgba(217, 119, 6, 0.12);
+  }
+}
+
+.lantern-pulse {
+  animation: lanternGlow 3.5s infinite ease-in-out;
+}
+
+/* Mountain Fog Drift */
+@keyframes fogDriftLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(35px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fogDriftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.fog-layer-1 {
+  animation: fogDriftLeft 24s infinite ease-in-out;
+}
+
+.fog-layer-2 {
+  animation: fogDriftRight 32s infinite ease-in-out;
+}
+
+/* Analog VU Needle Smooth Return */
+.vu-needle {
+  transform-origin: 50% 100%;
+  transition: transform 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+/* Vintage Paper / Letter Styling */
+.parchment-texture {
+  background-color: #f4ecdc;
+  background-image: radial-gradient(#e3d4be 10%, transparent 11%), radial-gradient(#e3d4be 10%, transparent 11%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(160, 120, 70, 0.2);
+}
+
+/* Custom Scrollbar for Vintage Cabin */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18110b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a321f;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #735032;
+}

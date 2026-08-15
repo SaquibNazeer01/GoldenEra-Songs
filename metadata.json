@@ -1,0 +1,6 @@
+{
+  "name": "GoldenEra Songs",
+  "description": "A soothing vintage radio player featuring timeless golden era melodies with ambient old radio atmosphere.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
