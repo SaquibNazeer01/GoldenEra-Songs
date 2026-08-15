@@ -23,7 +23,7 @@ import {
 import { INITIAL_SONGS, CATEGORIES } from './data/songs';
 import { Song } from './types';
 import { audioEngine } from './services/audioEngine';
-import radioBg from './assets/images/radio-bg.webp';
+import bgVideo from './assets/videos/bg-video.mp4';
 import { VintageClock } from './components/VintageClock';
 
 export default function App() {
@@ -219,13 +219,15 @@ export default function App() {
       id="old-radio-app"
       className="relative min-h-[100dvh] w-full select-none overflow-hidden bg-[#0c0907] flex flex-col justify-between font-serif text-amber-100"
     >
-      {/* 1. Old Radio Picture in Background - Responsive for all screens */}
+      {/* 1. Vintage Radio Background Video - Responsive for all screens (muted) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img
-          src={radioBg}
-          alt="Vintage Old Radio Background"
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-[center_62%] sm:object-[center_55%] md:object-center filter brightness-[0.78] contrast-[1.05] transition-transform duration-1000 ease-out"
+        <video
+          src={bgVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-[center_62%] sm:object-[center_55%] md:object-center filter brightness-[0.80] contrast-[1.05] transition-transform duration-1000 ease-out"
         />
         {/* Soothing Warm Vignette & Atmospheric Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0c0907]/95 via-[#0c0907]/25 to-[#0c0907]/75" />
